@@ -22,9 +22,20 @@ def get_cluster_data(parameters):
     return data
 
 
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
+
+
 class UserViewSet(viewsets.ViewSet):
     def create(self, request):
-        serializer_class = UserSerializer(data=request.data)
+        data = request.data
+        data['ip_address'] = get_client_ip(request)
+        serializer_class = UserSerializer(data=data)
         if serializer_class.is_valid():
             serializer_class.save()
             return Response({'data': serializer_class.data})

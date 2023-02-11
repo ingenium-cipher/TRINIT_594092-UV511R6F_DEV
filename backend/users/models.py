@@ -10,7 +10,8 @@ class User(models.Model):
     state = models.CharField(max_length=50)
     phone_number = models.BigIntegerField(blank=True)
     email = models.EmailField(blank=True)
-    ip_address = models.GenericIPAddressField(null=True)
+    ip_address = models.GenericIPAddressField(null=True, unique=True)
+
 
 class Cluster(models.Model):
     number = models.IntegerField()

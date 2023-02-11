@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-+h94pgp8nr8*l42rj#2lp(zw@h=_j7+)jpi=m+%24pxalgxf9+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['3a2e-27-122-60-193.in.ngrok.io', 'localhost']
+ALLOWED_HOSTS = ['3a2e-27-122-60-193.in.ngrok.io',
+                 'localhost', '43.205.196.71']
 
 
 # Application definition
@@ -76,18 +77,18 @@ WSGI_APPLICATION = 'nithackathon.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'nithackathon',
-        'ENFORCE_SCHEMA': False,
-        'CLIENT': {
-            'host': 'mongodb://localhost:27017'
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
+    # 'default': {
+    #     'ENGINE': 'djongo',
+    #     'NAME': 'nithackathon',
+    #     'ENFORCE_SCHEMA': False,
+    #     'CLIENT': {
+    #         'host': 'mongodb://localhost:27017'
+    #     }
+    # }
 }
 
 
