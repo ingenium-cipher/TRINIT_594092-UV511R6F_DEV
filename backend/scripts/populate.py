@@ -19,15 +19,15 @@ def populate():
                 name="Ayush", age=age_rows[i], gender=gender_rows[i], state="Bihar")
         elif i % 5 == 1:
             User.objects.create(
-                name="Ashu", age=age_rows[i], gender=gender_rows[i], state="Bihar")
+                name="Ashu", age=age_rows[i], gender=gender_rows[i], state="Rajasthan")
         elif i % 5 == 2:
             User.objects.create(
-                name="Chintu", age=age_rows[i], gender=gender_rows[i], state="Bihar")
+                name="Chintu", age=age_rows[i], gender=gender_rows[i], state="Punjab")
         elif i % 5 == 3:
             User.objects.create(
-                name="Kshitij", age=age_rows[i], gender=gender_rows[i], state="Bihar")
+                name="Kshitij", age=age_rows[i], gender=gender_rows[i], state="Assam")
         else:
             User.objects.create(
-                name="Anshul", age=age_rows[i], gender=gender_rows[i], state="Bihar")
+                name="Anshul", age=age_rows[i], gender=gender_rows[i], state="Haryana")
 
 populate()
