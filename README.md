@@ -13,11 +13,12 @@ And we have added **4 BROWNIE FEATURES**
 4. Searching for a user profile based on parameters and even downloading the data based on clusters formed.
 
 Screenshots:
-![screenshot1](https://user-images.githubusercontent.com/74527169/218289137-f3ea3ac2-e955-47f7-84d7-e83032545025.png)
-![screenshot2](https://user-images.githubusercontent.com/74527169/218289140-2a797a40-7330-4c8c-bf54-14ded8890cc3.png)
-![screenshot3](https://user-images.githubusercontent.com/74527169/218289142-def1a7b1-0db0-422f-bcd2-a2aaea79df64.png)
-![screenshot4](https://user-images.githubusercontent.com/74527169/218289143-b2b1bd10-8950-40b6-a9d3-134e96386fd7.png)
+
 ![screenshot5](https://user-images.githubusercontent.com/74527169/218289144-b406bcc7-44d5-49b9-9d37-36d047a85c95.png)
+![screenshot4](https://user-images.githubusercontent.com/74527169/218289143-b2b1bd10-8950-40b6-a9d3-134e96386fd7.png)
+![screenshot3](https://user-images.githubusercontent.com/74527169/218289142-def1a7b1-0db0-422f-bcd2-a2aaea79df64.png)
+![screenshot2](https://user-images.githubusercontent.com/74527169/218289140-2a797a40-7330-4c8c-bf54-14ded8890cc3.png)
+![screenshot1](https://user-images.githubusercontent.com/74527169/218289137-f3ea3ac2-e955-47f7-84d7-e83032545025.png)
 
 
 We have given it all by solving the problem statement given by BharatX i.e. dev04 hoping the jury/judges also feel the same .
