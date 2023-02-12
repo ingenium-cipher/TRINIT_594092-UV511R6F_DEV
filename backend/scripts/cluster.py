@@ -9,6 +9,7 @@ import sys
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.preprocessing import normalize
 from sklearn.decomposition import PCA
+from sklearn.metrics import silhouette_score
 sys.path.append('../')
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'nithackathon.settings')
@@ -27,6 +28,36 @@ def compute_freq(x, idx):
             freq_arr[ord(c.lower()) - ord('a')] += 1
     return pd.Series(freq_arr, index = list(map(chr, range(97, 123))))
 
+def predict_k(pca_2d, qs, param_list):
+    if len(param_list) == 1:
+        return min(len(qs), 3)
+    wcss = []
+    max_iters = min(len(qs), 11)
+
+    for i in range(2, max_iters):
+        km = KMeans(n_clusters=i, init='k-means++',
+                    max_iter=300, n_init=10, random_state=0)
+        km.fit_predict(pca_2d)
+        wcss.append(silhouette_score(pca_2d, km.labels_))
+
+    plt.clf()
+    plt.plot(range(2, max_iters), wcss, c="#c51b7d")
+    plt.gca().spines["top"].set_visible(False)
+    plt.gca().spines["right"].set_visible(False)
+    plt.title('Elbow Method', size=14)
+    plt.xlabel('Number of clusters', size=12)
+    plt.ylabel('wcss', size=14)
+    plt.savefig("plot.png")
+
+    # slopes = []
+    cluster_count = min(len(qs), 3)  # pre define n_clusters
+    max_score = 0
+    for idx, s in enumerate(wcss):
+        if s > max_score:
+            max_score = s
+            cluster_count = idx + 2
+
+    return cluster_count
 
 def compute_kmeans(parameters):
     param_list = []
@@ -54,36 +85,14 @@ def compute_kmeans(parameters):
             df = pd.concat([df, df2], axis = 1)
             df = df.drop('name', axis='columns')
 
-        # predict the right 'k'
-        wcss = []
-        max_iters = min(len(qs), 11)
         rows = np.array(df.iloc[:, :])
-        print(rows)
-
         pca_2d = rows
         if len(param_list) >= 2:
             sklearn_pca = PCA(n_components=2)
             pca_2d = sklearn_pca.fit_transform(rows)
 
-        for i in range(1, max_iters):
-            km = KMeans(n_clusters=i, init='k-means++',
-                        max_iter=300, n_init=10, random_state=0)
-            km.fit(pca_2d)
-            wcss.append(km.inertia_)
-        # plt.plot(range(1, max_iters), wcss, c="#c51b7d")
-        # plt.gca().spines["top"].set_visible(False)
-        # plt.gca().spines["right"].set_visible(False)
-        # plt.title('Elbow Method', size=14)
-        # plt.xlabel('Number of clusters', size=12)
-        # plt.ylabel('wcss', size=14)
-        # plt.savefig("plot.png")
-
-        slopes = []
-        for i in range(len(wcss) - 1):
-            slopes.append(wcss[i] - wcss[i+1])
-
-        max_diff = 0
-        cluster_count = min(len(qs), 3)  # pre define n_clusters
+        # predict the right 'k'
+        cluster_count = predict_k(pca_2d, qs, param_list)
         # for idx, i in enumerate(range(len(slopes) - 1)):
         #     diff = slopes[i] - slopes[i+1]
         #     if diff > max_diff:

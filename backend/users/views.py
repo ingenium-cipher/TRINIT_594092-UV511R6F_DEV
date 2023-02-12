@@ -79,8 +79,8 @@ class ClusterViewSet(viewsets.ViewSet):
         data = UserSerializer(queryset, many=True).data
         df = pd.DataFrame(data)
         df.to_csv("cluster.csv")
-        return HttpResponse(
-            content_type='text/csv',
-            headers={
-                'Content-Disposition': 'attachment; filename="cluster.csv"'},
-        )
+
+        with open('cluster.csv') as myfile:
+            response = HttpResponse(myfile, content_type='text/csv')
+            response['Content-Disposition'] = 'attachment; filename=cluster.csv'
+            return response
