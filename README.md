@@ -1,6 +1,6 @@
-# marketx_app
+# MarketX_app
 
-After 36 hours of sleepless nights and days we have successfully implemented the system for **Dynamic Entity Clustering**.
+After 36 hours of sleepless night and days we have successfully implemented the system for **Dynamic Entity Clustering**.
 The name of our project is **MarketX**.
 We have chosen the user as the entity and then clustered data based on 4 parameters namely age,gender,state, name.
 
