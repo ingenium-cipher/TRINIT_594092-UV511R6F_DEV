@@ -12,6 +12,11 @@ And we have added **4 BROWNIE FEATURES**
 3. Additional security feature preventing multiple registrations from the same IP address.Thereby fulfilling all the use cases as well.
 4. Searching for a user profile based on parameters and even downloading the data based on clusters formed.
 
+The above application is a cross platform compatible that is it works both on Android as well as IOS.
+
+Android App Link: https://drive.google.com/drive/folders/12CyA42BfpoFKum_QAnYaNRMsISOnSEXx?usp=sharing
+Postman API Doc Link: https://documenter.getpostman.com/view/10883145/2s935uFzpW#intro
+
 Screenshots:
 
 ![screenshot5](https://user-images.githubusercontent.com/74527169/218289144-b406bcc7-44d5-49b9-9d37-36d047a85c95.png)
