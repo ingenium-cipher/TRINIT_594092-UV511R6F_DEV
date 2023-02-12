@@ -8,8 +8,8 @@ class User(models.Model):
     age = models.IntegerField()
     gender = models.CharField(max_length=10, choices=gender_choices)
     state = models.CharField(max_length=50)
-    phone_number = models.BigIntegerField(blank=True)
-    email = models.EmailField(blank=True)
+    phone_number = models.BigIntegerField(blank=True, null=True)
+    email = models.EmailField(blank=True, null=True)
     ip_address = models.GenericIPAddressField(null=True, unique=True)
 
 
