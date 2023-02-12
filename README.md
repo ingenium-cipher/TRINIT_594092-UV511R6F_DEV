@@ -18,6 +18,8 @@ Android App Link: https://drive.google.com/drive/folders/12CyA42BfpoFKum_QAnYaNR
 
 Postman API Doc Link: https://documenter.getpostman.com/view/10883145/2s935uFzpW#intro
 
+App Demo Video Link: https://drive.google.com/drive/folders/1EoSPn5zFKvTIvvmVkxic3suAQp6I_b4d?usp=share_link
+
 Screenshots:
 
 ![screenshot5](https://user-images.githubusercontent.com/74527169/218289144-b406bcc7-44d5-49b9-9d37-36d047a85c95.png)
